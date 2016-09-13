@@ -1,6 +1,6 @@
 # ehop-dns-resolver  
 
-  This script will grab all L3 devices found in the ExtraHop system, check to see if they don't have a custom, DNS, or DHCP name.  If it has neither of those three, it will make a DNS request and update the device name to that of the answer of the DNS request.
+  This script will grab all L3 devices found in the ExtraHop system, check to see if they don't have a custom, DNS, or DHCP name.  If it has none of those three, it will make a DNS request and update the device name to that of the answer of the DNS request.
 
   This is useful if you are not seeing certain segments of DNS traffic and ExtraHop contains a lot of devices similar to "VMWare 10.1.1.1250" for example.
 
