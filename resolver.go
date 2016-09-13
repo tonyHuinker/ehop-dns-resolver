@@ -68,7 +68,7 @@ func main() {
 	for _, device := range devices {
 		if device.IsL3 {
 			//fmt.Println("\nCustom Name: " + device.CustomName + "\nDefault Name: " + device.DefaultName + "\nDisplay Name: " + device.DisplayName + "\nDNS Name: " + device.DNSName + "\nDHCP Name: " + device.DhcpName)
-			if !((device.DNSName != "") && (device.DhcpName != "")) {
+			if !((device.DNSName != "") && (device.DhcpName != "") && (device.CustomName != "")) {
 				answers, err := net.LookupAddr(device.Ipaddr4)
 				if err == nil {
 					if slow {
