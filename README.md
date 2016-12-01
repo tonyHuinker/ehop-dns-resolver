@@ -6,10 +6,14 @@ Next it will ask how much tie your would like to wait (in ms) between every DNS 
 
 It will then present you with some summary statistics about devices on your system... Like so.
 
->Total L3 Devices = 1616
->Devices with DNS Names = 1039
->Devices with DHCP Names = 738
->Devices with CustomNames and no DNS name = 5
+>Total L3 Devices = 1616  
+
+>Devices with DNS Names = 1039  
+
+>Devices with DHCP Names = 738  
+
+>Devices with CustomNames and no DNS name = 5  
+
 
 Next it will ask you some questions about how you would like it to run...
 
