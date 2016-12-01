@@ -13,7 +13,8 @@ It will then present you with some summary statistics about devices on your syst
 
 Next it will ask you some questions about how you would like it to run...
 
->Would you like to
+>Would you like to  
+
 > [1] -- Resolve names for all devices that do not have DNS names, WITHOUT overwriting existing CustomNames  
 
 > [2] -- Resolve names for all devices that do not have DNS names, WHILE overwriting existing CustomNames  
