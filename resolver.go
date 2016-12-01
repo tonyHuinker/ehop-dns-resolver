@@ -72,7 +72,7 @@ func showStats(myhop *ehop.EDA){
 		if device.IsL3 {
 			numL3++
 			if device.CustomName != "" && device.DNSName == "" {
-				fmt.Println(device.CustomName + " is a custom name for this IP " + device.Ipaddr4)
+				//fmt.Println(device.CustomName + " is a custom name for this IP " + device.Ipaddr4)
 				numCustomName++
 			}
 			if device.DNSName != "" {
@@ -112,8 +112,12 @@ func main() {
 
 	keyFile := askForInput("What is the name of your keyFile?")
 	myhop := ehop.NewEDAfromKey(keyFile)
-	showStats(myhop)
 
+	//Get time to wait between DNS requests
+	time2 := askForInput("How much time (in ms) to wait between each DNS call? Recommend 500ms or greater")
+	timeInMs,_ := strconv.Atoi(time2)
+
+	showStats(myhop)
 	showChoices()
 	ask := askForInput(">>")
 	switch ask {
@@ -159,7 +163,7 @@ func main() {
 			} else {
 				if device.DNSName == "" {
 					if device.CustomName == "" {
-						time.Sleep(500 * time.Millisecond)
+						time.Sleep(time.Duration(timeInMs) * time.Millisecond)
 						answers, err := net.LookupAddr(device.Ipaddr4)
 						if err == nil {
 							changeDeviceName(myhop, answers[0], device.DefaultName, device.ID, makeChanges, false)
