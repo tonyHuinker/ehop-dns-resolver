@@ -1,24 +1,27 @@
 # ehop-dns-resolver  
 
-  This script will grab all L3 devices found in the ExtraHop system, check to see if they don't have a custom, DNS, or DHCP name.  If it has none of those three, it will make a DNS request and update the device name to that of the answer of the DNS request.
+Script will start by asking you for a key file (see example key file in this repo or providing your ExtraHop hostname and api key)
 
-  This is useful if you are not seeing certain segments of DNS traffic and ExtraHop contains a lot of devices similar to "VMWare 10.1.1.1250" for example.
+Next it will ask how much tie your would like to wait (in ms) between every DNS call... This is to avoid putting any stress on your DNS server to avoid setting off any security alarms.
 
-  If you wish to compile from source, go ahead.. if you wish to download the binary, you can follow these steps.
+It will then present you with some summary statistics about devices on your system... Like so.
 
-  1. Download either Windows or OSX binary from bin folder
-  2. Download keys file
-  3. Replace IP/Hostname in the keys file to that of your own ExtraHop IP/hostname.
-  4. Replace the api key to that of your own API key
-  5. Run program
+>Total L3 Devices = 1616
+>Devices with DNS Names = 1039
+>Devices with DHCP Names = 738
+>Devices with CustomNames and no DNS name = 5
 
-  The program will ask a series of questions...
+Next it will ask you some questions about how you would like it to run...
 
-  Question 1. What is the name of your keys file?
-  (default answer would be keys here)
+>Would you like to
+> [1] -- Resolve names for all devices that do not have DNS names, WITHOUT overwriting existing CustomNames  
 
-  Question 2. Do you actually want to make changes?  
-  (enter "yes" to update the device names in ExtraHop... enter test to see the changes but not actually make them)
+> [2] -- Resolve names for all devices that do not have DNS names, WHILE overwriting existing CustomNames  
 
-  Question 3. Fast or slow?
-  By default.. the script will make the DNS requests as fast as it can... if you are worried about over loading the DNS server whatsoever... enter "slow" and the script will wait 500ms between each call.
+> [3] -- Resolve names for all devices that do not have DNS names, and ASK before overwriting CustomNames  
+
+> [4] -- Do a dry run, and show results without actually making any changes  
+
+> [5] -- Delete all custom names
+
+Make your choice, and let it run.
